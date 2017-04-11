@@ -2,9 +2,9 @@ extends header.pug
 
 block content
   body
-    form(action="http://localhost:3000/add" method="POST")
-      input.title(placeholder="title")
-      input.year(placeholder="year")
+    form(action="/add" method="post")
+      input(name='title' type='text' , placeholder="title")
+      input(name='year' type='text' , placeholder="year")
       //- input.author(placeholder="author")
       //- input.genre(placeholder="genre")
-      input(type="submit")
+      button(type="submit") Create Book
