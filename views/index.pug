@@ -3,8 +3,8 @@ extends header.pug
 block content
   body
     form(action="/add" method="post")
-      input(name='title' type='text' , placeholder="title")
-      input(name='year' type='text' , placeholder="year")
-      //- input.author(placeholder="author")
-      //- input.genre(placeholder="genre")
+      input(name="title" placeholder="title")
+      input(name="year" type="number" placeholder="year")
+      input(name="author" placeholder="author")
+      input(name="genre" placeholder="genre")
       button(type="submit") Create Book

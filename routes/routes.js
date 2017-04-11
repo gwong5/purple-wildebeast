@@ -1,20 +1,17 @@
 const express = require('express')
 const router = express.Router()
-    // const path = require('path')
-const bodyparser = require('body-parser')
 const db = require('../database/database')
 
+router.get('/', (request, response) => {
+    response.render('index')
+})
 
-// router.use('/', routes)
-// router.use('/add', index)
-router.use(bodyparser.json())
-
-router.post('/', (request, response) => {
-console.log('request.body', request.body, request.params)
-  db.createBook(request.body.title, request.body.year)
-      // .then(db.createAuthor(request.body.author))
-      // .then(db.createGenre(request.body.genre))
-      .then((book) => response.json({book:'book'}))
+router.post('/add', (request, response) => {
+    const {title, year, author, genre} = request.body
+  db.createBook(title, year)
+      .then(db.createAuthor(author))
+      .then(db.createGenre(genre))
+      .then(() => response.redirect('/'))
       .catch(error => response.send({ error, message: error.message}))
 })
 
