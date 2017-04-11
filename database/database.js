@@ -1,5 +1,6 @@
-const db = require ({database:'bookstore'})
+// const db = require ({database:'bookstore'})
 const pgp = require ('pg-promise')()
+const db = pgp({database: 'bookstore'})
 
 const createBook = (title, year) => db.none('INSERT INTO books (title, year) VALUES($1, $2)', [title, year])
 

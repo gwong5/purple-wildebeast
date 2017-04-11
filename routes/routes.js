@@ -1,20 +1,21 @@
 const express = require('express')
-const app = express()
-const path = require('path')
+const router = express.Router()
+    // const path = require('path')
 const bodyparser = require('body-parser')
-const db = require('../database/database.js')
+const db = require('../database/database')
 
-app.use('/', routes)
-app.use('/add', index)
-app.use(bodyparser.json())
 
-app.post('/add', (request, response, next) => {
-    db.createBook(request.params.title, request.params.year)
-    // .then(db.createAuthor(request.body.author))
-    // .then(db.createGenre(request.body.genre))
-    .then(book => {
-      response.redirect('/')
-  })
+// router.use('/', routes)
+// router.use('/add', index)
+router.use(bodyparser.json())
+
+router.post('/', (request, response) => {
+console.log('request.body', request.body, request.params)
+  db.createBook(request.body.title, request.body.year)
+      // .then(db.createAuthor(request.body.author))
+      // .then(db.createGenre(request.body.genre))
+      .then((book) => response.json({book:'book'}))
+      .catch(error => response.send({ error, message: error.message}))
 })
 
-module.exports = app
+module.exports = router
