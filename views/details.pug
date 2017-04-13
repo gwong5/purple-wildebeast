@@ -1,0 +1,14 @@
+extends header
+
+block content
+  body
+    form(action="/details/"  method="get")
+      for i in book
+        img(src= i.image)
+        div
+          button(id=i.id) Delete
+          button(id=i.id) Edit
+        div= i.author
+        div= i.title
+        div= i.genre
+        div= i.description
