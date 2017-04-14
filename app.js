@@ -14,5 +14,3 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', indexFile)
-app.use('/details', indexFile)
-app.use('/deleteBook', indexFile)

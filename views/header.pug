@@ -1,6 +1,14 @@
 doctype html
-html(lang = 'en')
+html(lang = "en")
   head
     title Purple Wildebeast
     h1 Book Store
+    .searchBar
+      input(placeholder="Search for...")
+      button(type="submit") Search
+    .headerButtons
+      form(action="/" method="get")
+        button(class="homeButton" href="/") Home
+      form(action="/create" method="get")
+        button(class="bookCreate" type="submit") Add New Book
   block content

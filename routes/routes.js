@@ -10,17 +10,20 @@ const { title, author, genre, image, description } = request.body
 })
 
 router.get('/details/:id', (request, response) => {
-// const { title, author, genre, image, description } = request.body
 const {id} = request.params
   db.getBook(id)
     .then((book) => response.render('details', {book}))
     .catch(error => response.send({ error, message: error.message }))
 })
 
+router.get('/create', (request, response) => {
+  response.render('create')
+})
+
 router.post('/deleteBook/:id', (request, response) => {
   const { id } = request.params
   db.deleteBook(id)
-    .then(() => response.redirect( '/' ) )
+    .then(() => response.redirect( '/' ))
     .catch(error => response.send({ error, message: error.message }))
 })
 
@@ -31,6 +34,15 @@ if (title, author, genre, image, description) {
       .then(() => response.redirect('/'))
       .catch(error => response.send({ error, message: error.message }))
   }
+})
+
+router.put('/update/:id', (request, response) => {
+  const { title, author, genre, image, description } = request.body
+  const { id } = request.params
+  db.updateBook(id, title, author, genre, image, description)
+    .then(() => response.redirect( '/' ))
+    .catch(error => response.send({ error, message: error.message }))
+
 })
 
 module.exports = router

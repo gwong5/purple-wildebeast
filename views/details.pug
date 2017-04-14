@@ -2,11 +2,14 @@ extends header
 
 block content
   body
-      for i in book
-        img(src= i.image)
-        div= i.author
-        div= i.title
-        div= i.genre
-        div= i.description
-          form(method="post" action="/deleteBook/"+i.id) 
-            button(type='submit') Delete
+    for info in book
+      img(src= info.image)
+        .details
+          .author()= info.author
+          .title()= info.title
+          .genre()= info.genre
+          .description()= info.description
+    form(method="post" action=`/deleteBook/${info.id}`) 
+      button(type="submit") Delete
+    form(method="put" action=`/updateBook/${info.id}`)
+      button(type="submit") Edit

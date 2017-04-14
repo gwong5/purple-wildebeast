@@ -1,0 +1,50 @@
+Arguments: 
+  /usr/local/Cellar/node/7.7.2/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands
+
+Yarn version: 
+  0.21.3
+
+Node version: 
+  7.7.2
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "purple-wildebeast",
+    "version": "1.0.0",
+    "description": "Simple Bookstore",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/kousagi1012/purple-wildebeast.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/kousagi1012/purple-wildebeast/issues"
+    },
+    "homepage": "https://github.com/kousagi1012/purple-wildebeast#readme",
+    "dependencies": {
+      "express": "^4.15.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: connect ETIMEDOUT 104.16.60.173:443
+      at Object.exports._errnoException (util.js:1033:11)
+      at exports._exceptionWithHostPort (util.js:1056:20)
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1105:14)
