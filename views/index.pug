@@ -2,15 +2,7 @@ extends header
 
 block content
   body
-    form(action="/add" method="post")
-      input(name="title" placeholder="title")
-      input(name="author" placeholder="author")
-      input(name="genre" placeholder="genre")
-      input(name="image" placeholder="image URL")
-      input(name="description" placeholder="description")
-      button(type="submit") Create Book
+    .pagination
       for book in books
         a(href='/details/' + book.id)
           img(src= book.image)
-
-      
