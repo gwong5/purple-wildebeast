@@ -9,7 +9,6 @@ block content
       input(name="image" placeholder="image URL")
       input(name="description" placeholder="description")
       button(type="submit") Create Book
-    form(action="/" method="get")
       for book in books
         a(href='/details/' + book.id)
           img(src= book.image)
