@@ -8,7 +8,9 @@ const getAllBooks = () => db.any('SELECT * FROM books')
 
 const getBook = (id) => db.any('SELECT * FROM books WHERE ID = $1', [id])
 
+const deleteBook = (id) => db.none('DELETE FROM books WHERE ID = $1', [id])
 
 
 
-module.exports = { createBook, getAllBooks, getBook }
+
+module.exports = { createBook, getAllBooks, getBook, deleteBook }
