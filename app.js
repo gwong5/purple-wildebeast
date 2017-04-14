@@ -8,9 +8,11 @@ app.listen(3000)
 const indexFile = require('./routes/routes')
 
 app.set('view engine', 'pug')
-app.set('views', path.join(__dirname, 'views'))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', indexFile)
+app.use(express.static('public'))
+app.use(express.static('public/images'))
+app.use(express.static('public/stylessheets'))
