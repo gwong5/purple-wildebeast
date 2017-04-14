@@ -5,4 +5,6 @@ block content
     .pagination
       for book in books
         a(href='/details/' + book.id)
-          img(src= book.image)
+          object.defaultIndexImage(data="https://s-media-cache-ak0.pinimg.com/originals/ae/8a/c2/ae8ac2fa217d23aadcc913989fcc34a2.png")
+            img(src= book.image)
+        .indexTitle= book.title
