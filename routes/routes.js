@@ -42,7 +42,6 @@ router.put('/update/:id', (request, response) => {
   db.updateBook(id, title, author, genre, image, description)
     .then(() => response.redirect( '/' ))
     .catch(error => response.send({ error, message: error.message }))
-
 })
 
 module.exports = router

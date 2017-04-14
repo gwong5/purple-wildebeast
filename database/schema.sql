@@ -7,13 +7,3 @@ CREATE TABLE books (
   image VARCHAR(255),
   description VARCHAR(3000) 
 );
-
-SELECT VALUES->>'title' AS title,
-       VALUES->>'author' AS Category,
-       VALUES->>'genre' AS Mac,
-       VALUES->>'Path' AS Path,
-       VALUES->>'ID' AS ID      
-from   (
-           select json_array_elements(replace(VALUES,'\','\\')::json) as values 
-           from   temp_json
-       ) a;
